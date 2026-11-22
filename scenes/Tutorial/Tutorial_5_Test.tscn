@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://cviyh16qu05mw"]
+
+[ext_resource type="PackedScene" uid="uid://cvkcijpgrx0vh" path="res://prefabs/level/checkpoint.tscn" id="1_8wrxn"]
+[ext_resource type="Material" uid="uid://n77rq8aivmw1" path="res://materials/mat_floor.tres" id="2_ck0n5"]
+[ext_resource type="Material" uid="uid://bts5atlqa27aw" path="res://materials/mat_wall.tres" id="3_moyfr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_spm3u"]
+size = Vector3(30, 0.1, 30)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_spm3u"]
+material = ExtResource("2_ck0n5")
+size = Vector2(30, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_16ncl"]
+size = Vector3(13, 4, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hf52b"]
+material = ExtResource("3_moyfr")
+size = Vector3(13, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kt7id"]
+size = Vector3(30, 4, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ftegh"]
+material = ExtResource("3_moyfr")
+size = Vector3(30, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xkif7"]
+size = Vector3(30, 4, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ugup4"]
+material = ExtResource("3_moyfr")
+size = Vector3(30, 2, 0.1)
+
+[node name="Tutorial_5_Test" type="Node3D" unique_id=1864783507]
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1766880726]
+transform = Transform3D(0.99999994, -1.7484552e-07, -1.042506e-15, -1.042506e-15, -1.1924878e-08, 0.9999999, -1.7484555e-07, -0.99999994, -1.1924879e-08, 0, 0.01, 0)
+text = "「 6 7 」"
+font_size = 128
+
+[node name="Checkpoint" parent="." unique_id=1420906699 instance=ExtResource("1_8wrxn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14)
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1038012245]
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=2143973372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+shape = SubResource("BoxShape3D_spm3u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=986164385]
+mesh = SubResource("PlaneMesh_spm3u")
+
+[node name="Wall1" type="StaticBody3D" parent="." unique_id=583025737]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 15)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall1" unique_id=406904515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_16ncl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall1" unique_id=1619634932]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_hf52b")
+
+[node name="Wall2" type="StaticBody3D" parent="." unique_id=1730555178]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 15)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2" unique_id=1270088127]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_16ncl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall2" unique_id=1554333013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_hf52b")
+
+[node name="Wall3" type="StaticBody3D" parent="." unique_id=1432901929]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15, 0, 0)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall3" unique_id=1922119674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_kt7id")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall3" unique_id=730248672]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_ftegh")
+
+[node name="Wall4" type="StaticBody3D" parent="." unique_id=774363657]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15, 0, 0)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall4" unique_id=587144309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_kt7id")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall4" unique_id=1039848386]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_ftegh")
+
+[node name="Wall5" type="StaticBody3D" parent="." unique_id=1715351948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall5" unique_id=556715553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_xkif7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall5" unique_id=1911083337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_ugup4")

@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://cat3stain268s"]
+
+[ext_resource type="Script" uid="uid://dl71n4kw8fuav" path="res://scripts/interactables/button.gd" id="1_button"]
+[ext_resource type="Script" uid="uid://cw0c60b6ky8e6" path="res://scripts/record/recordable.gd" id="2_rcrd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_plate"]
+size = Vector3(0.5, 0.5, 0.04)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plate"]
+albedo_color = Color(0.3, 0.3, 0.32, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cap"]
+top_radius = 0.15
+bottom_radius = 0.15
+height = 0.08
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_body"]
+size = Vector3(0.5, 0.5, 0.12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_reach"]
+size = Vector3(0.8, 0.9, 0.8)
+
+[node name="Button" type="Node3D" unique_id=1528191411]
+script = ExtResource("1_button")
+
+[node name="Recordable" type="Node" parent="." unique_id=603905827]
+script = ExtResource("2_rcrd")
+record_transform = false
+
+[node name="Plate" type="MeshInstance3D" parent="." unique_id=1702302023]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.02)
+mesh = SubResource("BoxMesh_plate")
+surface_material_override/0 = SubResource("StandardMaterial3D_plate")
+
+[node name="Cap" type="MeshInstance3D" parent="." unique_id=17175844]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.08)
+mesh = SubResource("CylinderMesh_cap")
+
+[node name="Body" type="StaticBody3D" parent="." unique_id=744320593]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body" unique_id=1138345194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.06)
+visible = false
+shape = SubResource("BoxShape3D_body")
+
+[node name="InteractArea" type="Area3D" parent="." unique_id=1544523038]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea" unique_id=1274126288]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0.4)
+shape = SubResource("BoxShape3D_reach")
+
+[node name="AimPoint" type="Marker3D" parent="." unique_id=1464000807]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)

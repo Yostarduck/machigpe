@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://n77rq8aivmw1"]
+
+[ext_resource type="Texture2D" uid="uid://bu63vohttew1h" path="res://textures/dev/texture_08.png" id="1_qf8ja"]
+
+[resource]
+albedo_color = Color(0.8609489, 0.7464296, 0.6074776, 1)
+albedo_texture = ExtResource("1_qf8ja")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0

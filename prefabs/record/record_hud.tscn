@@ -1,0 +1,58 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/record/record_hud.gd" id="1_hud"]
+[ext_resource type="Shader" path="res://shaders/record_screen.gdshader" id="2_shader"]
+[ext_resource type="Script" path="res://scripts/record/record_indicator.gd" id="3_ind"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_screen"]
+shader = ExtResource("2_shader")
+
+[node name="RecordHUD" type="CanvasLayer"]
+layer = 50
+script = ExtResource("1_hud")
+
+[node name="ScreenEffect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_screen")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Indicator" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -104.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 120.0
+grow_horizontal = 0
+mouse_filter = 2
+script = ExtResource("3_ind")
+
+[node name="Seconds" type="Label" parent="Indicator"]
+layout_mode = 0
+offset_top = 6.0
+offset_right = 88.0
+offset_bottom = 66.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Caption" type="Label" parent="Indicator"]
+layout_mode = 0
+offset_top = 76.0
+offset_right = 88.0
+offset_bottom = 100.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]

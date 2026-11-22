@@ -1,0 +1,25 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/interactables/breakable_wall.gd" id="1_wall"]
+[ext_resource type="Script" uid="uid://cw0c60b6ky8e6" path="res://scripts/record/recordable.gd" id="2_rcrd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wall"]
+size = Vector3(2, 2.5, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wall"]
+size = Vector3(2, 2.5, 0.4)
+
+[node name="BreakableWall" type="StaticBody3D"]
+script = ExtResource("1_wall")
+
+[node name="Recordable" type="Node" parent="."]
+script = ExtResource("2_rcrd")
+record_transform = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+mesh = SubResource("BoxMesh_wall")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+shape = SubResource("BoxShape3D_wall")

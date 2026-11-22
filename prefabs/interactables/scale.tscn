@@ -1,0 +1,74 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/interactables/scale.gd" id="1_scale"]
+[ext_resource type="Script" uid="uid://cw0c60b6ky8e6" path="res://scripts/record/recordable.gd" id="2_rcrd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_side"]
+size = Vector3(1.5, 0.2, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_side1"]
+albedo_color = Color(0.75, 0.6, 0.25, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_side2"]
+albedo_color = Color(0.6, 0.45, 0.2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_side"]
+size = Vector3(1.5, 0.2, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sensor"]
+size = Vector3(1.4, 0.3, 1.4)
+
+[node name="Scale" type="Node3D"]
+script = ExtResource("1_scale")
+
+[node name="Recordable" type="Node" parent="."]
+script = ExtResource("2_rcrd")
+record_transform = false
+
+[node name="Side1" type="AnimatableBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+
+[node name="Recordable" type="Node" parent="Side1"]
+script = ExtResource("2_rcrd")
+record_velocity = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Side1"]
+mesh = SubResource("BoxMesh_side")
+surface_material_override/0 = SubResource("StandardMaterial3D_side1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Side1"]
+shape = SubResource("BoxShape3D_side")
+
+[node name="Sensor" type="Area3D" parent="Side1"]
+collision_layer = 0
+collision_mask = 6
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Side1/Sensor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_sensor")
+
+[node name="Side2" type="AnimatableBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+
+[node name="Recordable" type="Node" parent="Side2"]
+script = ExtResource("2_rcrd")
+record_velocity = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Side2"]
+mesh = SubResource("BoxMesh_side")
+surface_material_override/0 = SubResource("StandardMaterial3D_side2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Side2"]
+shape = SubResource("BoxShape3D_side")
+
+[node name="Sensor" type="Area3D" parent="Side2"]
+collision_layer = 0
+collision_mask = 6
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Side2/Sensor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_sensor")

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://ci245a4t468vu"]
+
+[ext_resource type="Script" uid="uid://c1asbr4gg1ngt" path="res://scripts/level/hazard.gd" id="1_haz"]
+[ext_resource type="Material" uid="uid://df5jhuwkt2c3k" path="res://materials/mat_spikes.tres" id="2_2st5x"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_spikes"]
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_spikes"]
+size = Vector3(0.9, 0.4, 0.9)
+
+[node name="Spikes" type="Area3D" unique_id=157344171]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_haz")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1696702116]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+mesh = SubResource("BoxMesh_spikes")
+surface_material_override/0 = ExtResource("2_2st5x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1677893067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("BoxShape3D_spikes")

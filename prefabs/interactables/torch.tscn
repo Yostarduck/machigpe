@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://bu6u56hpm1v1k"]
+
+[ext_resource type="Script" uid="uid://52uchr00dml2" path="res://scripts/interactables/torch.gd" id="1_torch"]
+[ext_resource type="Script" uid="uid://cw0c60b6ky8e6" path="res://scripts/record/recordable.gd" id="2_rcrd"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pole"]
+top_radius = 0.06
+bottom_radius = 0.1
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wood"]
+albedo_color = Color(0.4, 0.27, 0.17, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bowl"]
+top_radius = 0.2
+bottom_radius = 0.08
+height = 0.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_metal"]
+albedo_color = Color(0.25, 0.25, 0.27, 1)
+metallic = 0.6
+roughness = 0.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_flame"]
+radius = 0.15
+height = 0.45
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flame"]
+shading_mode = 0
+albedo_color = Color(1, 0.55, 0.15, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_flame"]
+height = 0.75
+radius = 0.3
+
+[node name="Torch" type="Node3D" unique_id=527279598]
+script = ExtResource("1_torch")
+
+[node name="Recordable" type="Node" parent="." unique_id=253968189]
+script = ExtResource("2_rcrd")
+record_transform = false
+
+[node name="Pole" type="MeshInstance3D" parent="." unique_id=165398596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("CylinderMesh_pole")
+surface_material_override/0 = SubResource("StandardMaterial3D_wood")
+
+[node name="Bowl" type="MeshInstance3D" parent="." unique_id=2008916703]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_bowl")
+surface_material_override/0 = SubResource("StandardMaterial3D_metal")
+
+[node name="Flame" type="Node3D" parent="." unique_id=168302867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.575, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Flame" unique_id=6061531]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+mesh = SubResource("SphereMesh_flame")
+surface_material_override/0 = SubResource("StandardMaterial3D_flame")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Flame" unique_id=1256241736]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+light_color = Color(1, 0.65, 0.3, 1)
+light_energy = 1.5
+omni_range = 4.0
+
+[node name="FlameZone" type="Area3D" parent="." unique_id=1908116760]
+collision_layer = 16
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FlameZone" unique_id=869761625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+shape = SubResource("CylinderShape3D_flame")
+
+[node name="AimPoint" type="Marker3D" parent="." unique_id=444283757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)

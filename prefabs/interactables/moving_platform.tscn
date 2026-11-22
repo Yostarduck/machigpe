@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cfo3x5m1fhyb3"]
+
+[ext_resource type="Script" uid="uid://b4ymap0ksdcw" path="res://scripts/interactables/mover.gd" id="1_plat"]
+[ext_resource type="Script" uid="uid://cw0c60b6ky8e6" path="res://scripts/record/recordable.gd" id="2_rcrd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_plat"]
+size = Vector3(2, 0.2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plat"]
+albedo_color = Color(0.35, 0.45, 0.6, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_plat"]
+size = Vector3(2, 0.2, 2)
+
+[node name="MovingPlatform" type="AnimatableBody3D" unique_id=2038628555]
+script = ExtResource("1_plat")
+mode = 2
+offset = Vector3(3, 0, 0)
+move_time = 3.0
+return_time = 3.0
+
+[node name="Recordable" type="Node" parent="." unique_id=1751367929]
+script = ExtResource("2_rcrd")
+record_velocity = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=891801420]
+mesh = SubResource("BoxMesh_plat")
+surface_material_override/0 = SubResource("StandardMaterial3D_plat")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=80618015]
+shape = SubResource("BoxShape3D_plat")

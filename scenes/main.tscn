@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://dykuc6m1yfhf3"]
+
+[ext_resource type="PackedScene" uid="uid://snmm2p04itmj" path="res://prefabs/player/player_handler.tscn" id="2_sugp2"]
+[ext_resource type="Environment" uid="uid://gxo020pmuff8" path="res://resources/res_enviroment.tres" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bvyagum66k10c" path="res://scenes/DevTest.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bdwp51wpf23gi" path="res://scenes/Tutorial/Tutorial_1_Controls.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://rxe07wx2vnwn" path="res://scenes/Tutorial/Tutorial_2_Interactables.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://clr7r4p812tog" path="res://scenes/Tutorial/Tutorial_3_Attack.tscn" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://y1cftilebumb" path="res://scenes/Tutorial/Tutorial_4_Record.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://cviyh16qu05mw" path="res://scenes/Tutorial/Tutorial_5_Test.tscn" id="9_85g3d"]
+[ext_resource type="Script" uid="uid://ci2l1rgebe2rs" path="res://scripts/camera/camera_rig.gd" id="13_crig"]
+
+[node name="root" type="Node3D" unique_id=986410265]
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=1942554622 node_paths=PackedStringArray("target", "camera")]
+transform = Transform3D(0.7071067, -0.4545194, 0.54167515, 0, 0.7660443, 0.6427875, -0.7071067, -0.4545194, 0.54167515, 15, 15, 15)
+script = ExtResource("13_crig")
+target = NodePath("../PlayerHandler")
+camera = NodePath("Camera3D")
+offset = Vector3(14, 15, 15)
+inner_rect = Vector2(0.2, 0.2)
+outer_rect = Vector2(0.4, 0.5)
+max_lead = 7.0
+lead_speed = 2.0
+lead_return_speed = 8.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=1575767219]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, -2.9802322e-08, 0, 0, 1, 0, 0, 30)
+current = true
+fov = 15.0
+size = 12.5
+near = 5.0
+far = 100.0
+
+[node name="PlayerHandler" parent="." unique_id=818973133 instance=ExtResource("2_sugp2")]
+
+[node name="Label3D" type="Label3D" parent="PlayerHandler" unique_id=576816035]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+visible = false
+billboard = 1
+text = "Beater"
+font_size = 64
+
+[node name="DirectionalLight3D_1" type="DirectionalLight3D" parent="." unique_id=71182252]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.1924881e-08, 0.99999994, 0, -1, 1.192488e-08, 0, 10, 0)
+light_energy = 0.5
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+directional_shadow_mode = 1
+directional_shadow_split_1 = 0.2
+directional_shadow_blend_splits = true
+directional_shadow_pancake_size = 1.0
+sky_mode = 1
+
+[node name="DirectionalLight3D_2" type="DirectionalLight3D" parent="." unique_id=1202000867]
+transform = Transform3D(0.21480002, -0.7198327, 0.66007733, -0.18085277, 0.6348485, 0.7511724, -0.95976746, -0.28072864, 0.0061817225, 0, 5, 0)
+light_energy = 0.5
+light_volumetric_fog_energy = 0.0
+directional_shadow_mode = 0
+sky_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1144823462]
+environment = ExtResource("3_sugp2")
+
+[node name="DevTest" parent="." unique_id=592075209 instance=ExtResource("4_jyhfs")]
+
+[node name="Tutorial_1_Controls" parent="." unique_id=1864783507 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -46)
+
+[node name="Tutorial_2_Interactables" parent="." unique_id=1020422846 instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -93)
+
+[node name="Tutorial_3_Attack" parent="." unique_id=997118886 instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -133)
+
+[node name="Tutorial_4_Record" parent="." unique_id=2005105567 instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -173)
+
+[node name="Tutorial_5_Test" parent="." unique_id=791326359 instance=ExtResource("9_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -213)

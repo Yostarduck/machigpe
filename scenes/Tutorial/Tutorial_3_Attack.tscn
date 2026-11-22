@@ -1,0 +1,1023 @@
+[gd_scene format=3 uid="uid://clr7r4p812tog"]
+
+[ext_resource type="PackedScene" uid="uid://cvkcijpgrx0vh" path="res://prefabs/level/checkpoint.tscn" id="1_dl72p"]
+[ext_resource type="Material" uid="uid://n77rq8aivmw1" path="res://materials/mat_floor.tres" id="2_d11ic"]
+[ext_resource type="Material" uid="uid://bts5atlqa27aw" path="res://materials/mat_wall.tres" id="3_8gson"]
+[ext_resource type="PackedScene" path="res://prefabs/interactables/breakable_wall.tscn" id="4_b140y"]
+[ext_resource type="PackedScene" uid="uid://ci245a4t468vu" path="res://prefabs/level/spikes.tscn" id="5_tc5et"]
+[ext_resource type="PackedScene" path="res://prefabs/interactables/door_sliding_vertical.tscn" id="6_kqeru"]
+[ext_resource type="PackedScene" path="res://prefabs/interactables/key_group.tscn" id="7_02r0w"]
+[ext_resource type="PackedScene" path="res://prefabs/interactables/lever.tscn" id="8_8hp77"]
+[ext_resource type="PackedScene" uid="uid://cat3stain268s" path="res://prefabs/interactables/button.tscn" id="9_5uxny"]
+[ext_resource type="PackedScene" uid="uid://cfo3x5m1fhyb3" path="res://prefabs/interactables/moving_platform.tscn" id="10_pl5c7"]
+[ext_resource type="PackedScene" uid="uid://bu6u56hpm1v1k" path="res://prefabs/interactables/torch.tscn" id="11_ivf0v"]
+[ext_resource type="PackedScene" path="res://prefabs/level/coin.tscn" id="12_dhd0m"]
+[ext_resource type="Material" uid="uid://cke4t3w4o6bx1" path="res://materials/mat_platform_1.tres" id="13_rvl8u"]
+[ext_resource type="PackedScene" path="res://prefabs/interactables/door_hinged.tscn" id="14_q5iec"]
+[ext_resource type="PackedScene" path="res://prefabs/interactables/door_sliding_horizontal.tscn" id="15_04ipi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_spm3u"]
+size = Vector3(30, 0.1, 30)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_spm3u"]
+material = ExtResource("2_d11ic")
+size = Vector2(30, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_16ncl"]
+size = Vector3(13, 4, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hf52b"]
+material = ExtResource("3_8gson")
+size = Vector3(13, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kt7id"]
+size = Vector3(30, 4, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ftegh"]
+material = ExtResource("3_8gson")
+size = Vector3(30, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xkif7"]
+size = Vector3(13, 4, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ugup4"]
+material = ExtResource("3_8gson")
+size = Vector3(13, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b140y"]
+size = Vector3(2, 4, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tc5et"]
+material = ExtResource("3_8gson")
+size = Vector3(2, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tc5et"]
+size = Vector3(14, 4, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kqeru"]
+material = ExtResource("3_8gson")
+size = Vector3(14, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5uxny"]
+size = Vector3(4, 4, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pl5c7"]
+material = ExtResource("3_8gson")
+size = Vector3(4, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dhd0m"]
+size = Vector3(10, 4, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rvl8u"]
+material = ExtResource("3_8gson")
+size = Vector3(10, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rvl8u"]
+size = Vector3(2, 4, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_q5iec"]
+material = ExtResource("3_8gson")
+size = Vector3(2, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_04ipi"]
+size = Vector3(3, 4, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ovkyc"]
+material = ExtResource("3_8gson")
+size = Vector3(3, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q5iec"]
+size = Vector3(1, 4, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_04ipi"]
+material = ExtResource("3_8gson")
+size = Vector3(1, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ovkyc"]
+size = Vector3(1, 0.5, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_aoslj"]
+size = Vector3(1, 0.5, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aoslj"]
+size = Vector3(2, 0.5, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7xigm"]
+size = Vector3(2, 0.5, 2)
+
+[node name="Tutorial_3_Attack" type="Node3D" unique_id=1864783507]
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1766880726]
+transform = Transform3D(0.99999994, -1.7484552e-07, -1.042506e-15, -1.042506e-15, -1.1924878e-08, 0.9999999, -1.7484555e-07, -0.99999994, -1.1924879e-08, 0, 0.01, 11)
+text = "Tutorial 3:
+「A T T A C K」"
+font_size = 128
+
+[node name="Checkpoint" parent="." unique_id=1420906699 instance=ExtResource("1_dl72p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14)
+
+[node name="Checkpoint4" parent="." unique_id=1235136968 instance=ExtResource("1_dl72p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1038012245]
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=2143973372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+shape = SubResource("BoxShape3D_spm3u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=986164385]
+mesh = SubResource("PlaneMesh_spm3u")
+
+[node name="Wall1" type="StaticBody3D" parent="." unique_id=583025737]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 15)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall1" unique_id=406904515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_16ncl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall1" unique_id=1619634932]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_hf52b")
+
+[node name="Wall2" type="StaticBody3D" parent="." unique_id=1730555178]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 15)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2" unique_id=1270088127]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_16ncl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall2" unique_id=1554333013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_hf52b")
+
+[node name="Wall3" type="StaticBody3D" parent="." unique_id=1432901929]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15, 0, 0)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall3" unique_id=1922119674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_kt7id")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall3" unique_id=730248672]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_ftegh")
+
+[node name="Wall4" type="StaticBody3D" parent="." unique_id=774363657]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15, 0, 0)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall4" unique_id=587144309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_kt7id")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall4" unique_id=1039848386]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_ftegh")
+
+[node name="Wall5" type="StaticBody3D" parent="." unique_id=1715351948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, -15)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall5" unique_id=556715553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_xkif7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall5" unique_id=1911083337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_ugup4")
+
+[node name="Wall29" type="StaticBody3D" parent="." unique_id=131690472]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, -15)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall29" unique_id=1322240064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_xkif7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall29" unique_id=1920253388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_ugup4")
+
+[node name="BreakableWall" parent="." unique_id=266507203 instance=ExtResource("4_b140y")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11, 0, 12)
+min_strength = 2
+
+[node name="Wall6" type="StaticBody3D" parent="." unique_id=86240958]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11, 0, 14)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall6" unique_id=2063363375]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_b140y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall6" unique_id=176745829]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_tc5et")
+
+[node name="Wall7" type="StaticBody3D" parent="." unique_id=823656883]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11, 0, 10)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall7" unique_id=1094154588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_b140y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall7" unique_id=364274296]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_tc5et")
+
+[node name="BreakableWall2" parent="." unique_id=759939144 instance=ExtResource("4_b140y")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7, 0, 12)
+min_strength = 1
+
+[node name="Wall8" type="StaticBody3D" parent="." unique_id=364459987]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7, 0, 14)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall8" unique_id=2001812573]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_b140y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall8" unique_id=1142715289]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_tc5et")
+
+[node name="Wall9" type="StaticBody3D" parent="." unique_id=732524856]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7, 0, 10)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall9" unique_id=446128727]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_b140y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall9" unique_id=1877233640]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_tc5et")
+
+[node name="BreakableWall3" parent="." unique_id=789724221 instance=ExtResource("4_b140y")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 0, 12)
+
+[node name="Wall10" type="StaticBody3D" parent="." unique_id=585666307]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 0, 14)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall10" unique_id=179879525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_b140y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall10" unique_id=937290022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_tc5et")
+
+[node name="Wall11" type="StaticBody3D" parent="." unique_id=547175946]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 0, 10)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall11" unique_id=502960578]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_b140y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall11" unique_id=264633527]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_tc5et")
+
+[node name="Wall12" type="StaticBody3D" parent="." unique_id=424093675]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 9)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall12" unique_id=1537670657]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_tc5et")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall12" unique_id=1615747421]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_kqeru")
+
+[node name="Wall13" type="StaticBody3D" parent="." unique_id=1083950090]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 9)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall13" unique_id=658792487]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_tc5et")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall13" unique_id=1274274872]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_kqeru")
+
+[node name="Spikes" parent="." unique_id=1979886039 instance=ExtResource("5_tc5et")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, -5, 0, 12)
+damage = 100
+
+[node name="BreakableWall4" parent="." unique_id=1553703198 instance=ExtResource("4_b140y")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 2, 12)
+
+[node name="Wall14" type="StaticBody3D" parent="." unique_id=699699988]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 0, 14)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall14" unique_id=1141705190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_b140y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall14" unique_id=466115897]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_tc5et")
+
+[node name="Wall15" type="StaticBody3D" parent="." unique_id=225959195]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 0, 10)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall15" unique_id=1767097777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_b140y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall15" unique_id=1921897114]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_tc5et")
+
+[node name="Spikes2" parent="." unique_id=285461664 instance=ExtResource("5_tc5et")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, -10, 0, 12)
+damage = 100
+
+[node name="BreakableWall5" parent="." unique_id=1781138004 instance=ExtResource("4_b140y")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10, 2, 12)
+min_strength = 2
+
+[node name="Wall16" type="StaticBody3D" parent="." unique_id=704679298]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10, 0, 14)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall16" unique_id=1659933777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_b140y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall16" unique_id=2032990535]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_tc5et")
+
+[node name="Wall17" type="StaticBody3D" parent="." unique_id=1752728406]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10, 0, 10)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall17" unique_id=1281967264]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_b140y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall17" unique_id=1543046350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_tc5et")
+
+[node name="DoorSlidingVertical" parent="." unique_id=706815281 node_paths=PackedStringArray("keys") instance=ExtResource("6_kqeru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
+keys = [NodePath("../KeyGroup")]
+offset = Vector3(0, 2, 0)
+
+[node name="KeyGroup" parent="." unique_id=1463479767 node_paths=PackedStringArray("members") instance=ExtResource("7_02r0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
+members = [NodePath("../Lever"), NodePath("../Lever2")]
+stay_on = true
+
+[node name="Lever" parent="." unique_id=2017400154 instance=ExtResource("8_8hp77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 12)
+
+[node name="Lever2" parent="." unique_id=106326134 instance=ExtResource("8_8hp77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 12)
+
+[node name="Wall18" type="StaticBody3D" parent="." unique_id=426127985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 3)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall18" unique_id=829307125]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_tc5et")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall18" unique_id=819329738]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_kqeru")
+
+[node name="Wall19" type="StaticBody3D" parent="." unique_id=1187828297]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 3)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall19" unique_id=1910830220]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_tc5et")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall19" unique_id=128395437]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_kqeru")
+
+[node name="DoorSlidingVertical2" parent="." unique_id=201577121 node_paths=PackedStringArray("keys") instance=ExtResource("6_kqeru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+keys = [NodePath("../KeyGroup2")]
+offset = Vector3(0, 2, 0)
+
+[node name="KeyGroup2" parent="." unique_id=1430642027 node_paths=PackedStringArray("members") instance=ExtResource("7_02r0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+members = [NodePath("../Button"), NodePath("../Button2")]
+stay_on = true
+
+[node name="Button" parent="." unique_id=1528191411 instance=ExtResource("9_5uxny")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.95, 1, 6)
+
+[node name="Button2" parent="." unique_id=1357886374 instance=ExtResource("9_5uxny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 3.0500002)
+
+[node name="Spikes3" parent="." unique_id=612191830 instance=ExtResource("5_tc5et")]
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 6, -11.5, 0, 6)
+damage = 100
+
+[node name="Wall20" type="StaticBody3D" parent="." unique_id=1721210746]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -3)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall20" unique_id=298682460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_tc5et")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall20" unique_id=644454986]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_kqeru")
+
+[node name="Wall21" type="StaticBody3D" parent="." unique_id=426023718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -3)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall21" unique_id=136106658]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_tc5et")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall21" unique_id=1479468908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_kqeru")
+
+[node name="Wall22" type="StaticBody3D" parent="." unique_id=776045833]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11, 0, -1)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall22" unique_id=1606350384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_5uxny")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall22" unique_id=2027830316]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_pl5c7")
+
+[node name="Wall23" type="StaticBody3D" parent="." unique_id=1168920814]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9, 0, 1)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall23" unique_id=1869780275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_5uxny")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall23" unique_id=1157827714]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_pl5c7")
+
+[node name="Wall24" type="StaticBody3D" parent="." unique_id=1235536714]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7, 0, -1)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall24" unique_id=473596363]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_5uxny")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall24" unique_id=1233586802]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_pl5c7")
+
+[node name="Wall25" type="StaticBody3D" parent="." unique_id=403836482]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 0, 1)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall25" unique_id=1507220857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_5uxny")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall25" unique_id=1791395633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_pl5c7")
+
+[node name="DoorSlidingVertical3" parent="." unique_id=1071104607 node_paths=PackedStringArray("keys") instance=ExtResource("6_kqeru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+keys = [NodePath("../Button3")]
+offset = Vector3(0, 2, 0)
+
+[node name="Button3" parent="." unique_id=1494853909 instance=ExtResource("9_5uxny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 1, -2.95)
+short_time = 1.0
+normal_time = 3.0
+
+[node name="Spikes4" parent="." unique_id=2002771312 instance=ExtResource("5_tc5et")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 6, 10, 0, 0)
+damage = 100
+
+[node name="Button4" parent="." unique_id=1524500939 instance=ExtResource("9_5uxny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, -2.9499998)
+short_time = 2.0
+normal_time = 5.0
+
+[node name="MovingPlatform" parent="." unique_id=2038628555 node_paths=PackedStringArray("keys") instance=ExtResource("10_pl5c7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, 0)
+mode = 1
+keys = [NodePath("../Button4")]
+offset = Vector3(8, 0, 0)
+move_time = 10.0
+
+[node name="Coin" parent="." unique_id=1054762696 instance=ExtResource("12_dhd0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.228, 0)
+
+[node name="Coin2" parent="." unique_id=1863778114 instance=ExtResource("12_dhd0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.228, 0)
+
+[node name="Coin3" parent="." unique_id=710701447 instance=ExtResource("12_dhd0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1.228, 0)
+
+[node name="Coin4" parent="." unique_id=605910910 instance=ExtResource("12_dhd0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.228, 0)
+
+[node name="Coin5" parent="." unique_id=1791095074 instance=ExtResource("12_dhd0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.228, 0)
+
+[node name="Coin6" parent="." unique_id=285268965 instance=ExtResource("12_dhd0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1.228, 0)
+
+[node name="Coin7" parent="." unique_id=2084425878 instance=ExtResource("12_dhd0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1.228, 0)
+
+[node name="Coin8" parent="." unique_id=1722820517 instance=ExtResource("12_dhd0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 1.228, 0)
+
+[node name="Coin9" parent="." unique_id=1147284613 instance=ExtResource("12_dhd0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1.228, 0)
+
+[node name="Torch" parent="." unique_id=1386213860 instance=ExtResource("11_ivf0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -14.5)
+short_time = 2.0
+normal_time = 4.0
+
+[node name="BreakableWall6" parent="." unique_id=392406622 instance=ExtResource("4_b140y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -14)
+min_strength = 2
+
+[node name="MovingPlatform2" parent="." unique_id=1166983758 node_paths=PackedStringArray("keys") instance=ExtResource("10_pl5c7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, -6)
+mode = 1
+keys = [NodePath("../Torch")]
+offset = Vector3(8, 0, 0)
+move_time = 10.0
+
+[node name="Spikes5" parent="." unique_id=1093593412 instance=ExtResource("5_tc5et")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 6, 10, 0, -6)
+damage = 100
+
+[node name="Wall26" type="StaticBody3D" parent="." unique_id=1595279159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -9)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall26" unique_id=1414036446]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_dhd0m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall26" unique_id=1502001848]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_rvl8u")
+
+[node name="Wall28" type="StaticBody3D" parent="." unique_id=365257060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -9)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall28" unique_id=482750287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_dhd0m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall28" unique_id=635947513]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_rvl8u")
+
+[node name="Wall27" type="StaticBody3D" parent="." unique_id=923964234]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12, 0, -8)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall27" unique_id=40687468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_rvl8u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall27" unique_id=462219697]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_q5iec")
+
+[node name="Wall34" type="StaticBody3D" parent="." unique_id=2041388832]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10, 0, -4.5)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall34" unique_id=1410261082]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_04ipi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall34" unique_id=1166154185]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_ovkyc")
+
+[node name="Wall32" type="StaticBody3D" parent="." unique_id=1602169422]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9, 0, -14)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall32" unique_id=1827539018]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_rvl8u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall32" unique_id=1069483964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_q5iec")
+
+[node name="Wall33" type="StaticBody3D" parent="." unique_id=1861909690]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9, 0, -10)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall33" unique_id=303970165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_rvl8u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall33" unique_id=2046438731]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_q5iec")
+
+[node name="Wall30" type="StaticBody3D" parent="." unique_id=1661484893]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.5, 0, -14.5)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall30" unique_id=1196396180]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_q5iec")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall30" unique_id=1022406638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_04ipi")
+
+[node name="Wall35" type="StaticBody3D" parent="." unique_id=611062735]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 0, -9.5)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall35" unique_id=1549677528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_q5iec")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall35" unique_id=74195202]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_04ipi")
+
+[node name="Wall36" type="StaticBody3D" parent="." unique_id=1203897432]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 0, -14.5)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall36" unique_id=1977536392]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_q5iec")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall36" unique_id=830182391]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_04ipi")
+
+[node name="Wall31" type="StaticBody3D" parent="." unique_id=1740826326]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.5, 0, -14.5)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall31" unique_id=285014058]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_q5iec")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall31" unique_id=1607179592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_04ipi")
+
+[node name="KeyGroup3" parent="." unique_id=44935248 node_paths=PackedStringArray("members") instance=ExtResource("7_02r0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 1.5, -9)
+members = [NodePath("../Button5")]
+stay_on = true
+
+[node name="Button5" parent="." unique_id=2107947327 instance=ExtResource("9_5uxny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 1.5, -8.95)
+short_time = 2.0
+normal_time = 5.0
+
+[node name="Spikes6" parent="." unique_id=157344171 instance=ExtResource("5_tc5et")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 6, -10, 0, -6)
+damage = 100
+
+[node name="Spikes7" parent="." unique_id=1492393767 instance=ExtResource("5_tc5et")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 6, -10, 0, -12)
+damage = 100
+
+[node name="Torch2" parent="." unique_id=1921265664 instance=ExtResource("11_ivf0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -7)
+short_time = 0.5
+normal_time = 1.0
+long_time = 5.0
+
+[node name="Torch4" parent="." unique_id=1198723038 instance=ExtResource("11_ivf0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -7)
+short_time = 0.5
+normal_time = 1.0
+long_time = 5.0
+
+[node name="Torch6" parent="." unique_id=1474107205 instance=ExtResource("11_ivf0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -7)
+short_time = 0.5
+normal_time = 1.0
+long_time = 5.0
+
+[node name="Torch8" parent="." unique_id=660349005 instance=ExtResource("11_ivf0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -7)
+short_time = 0.5
+normal_time = 1.0
+long_time = 5.0
+
+[node name="Torch10" parent="." unique_id=1212033403 instance=ExtResource("11_ivf0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -7)
+short_time = 0.5
+normal_time = 1.0
+long_time = 5.0
+
+[node name="Torch11" parent="." unique_id=1517048088 instance=ExtResource("11_ivf0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -5)
+short_time = 0.5
+normal_time = 1.0
+long_time = 5.0
+
+[node name="Button6" parent="." unique_id=1598135926 instance=ExtResource("9_5uxny")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.95, 1, -5)
+short_time = 1.0
+normal_time = 3.0
+
+[node name="KeyGroup4" parent="." unique_id=698872911 node_paths=PackedStringArray("members") instance=ExtResource("7_02r0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -4)
+members = [NodePath("../Torch2"), NodePath("../Torch4"), NodePath("../Torch6"), NodePath("../Torch8"), NodePath("../Torch10"), NodePath("../Torch11"), NodePath("../Button6")]
+stay_on = true
+
+[node name="Lever3" parent="." unique_id=509919228 instance=ExtResource("8_8hp77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -12)
+
+[node name="DoorSlidingVertical4" parent="." unique_id=155412774 node_paths=PackedStringArray("keys") instance=ExtResource("6_kqeru")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9, 0, -12)
+keys = [NodePath("../KeyGroup3")]
+offset = Vector3(0, 2, 0)
+
+[node name="StaticBody3D_1" type="StaticBody3D" parent="." unique_id=402333227]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -12)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D_1" unique_id=1461694625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_ovkyc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D_1" unique_id=1655492111]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+material_override = ExtResource("13_rvl8u")
+mesh = SubResource("BoxMesh_aoslj")
+
+[node name="StaticBody3D_2" type="StaticBody3D" parent="." unique_id=1272586324]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 0, -12)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D_2" unique_id=1509052990]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_ovkyc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D_2" unique_id=1582390572]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+material_override = ExtResource("13_rvl8u")
+mesh = SubResource("BoxMesh_aoslj")
+
+[node name="StaticBody3D_3" type="StaticBody3D" parent="." unique_id=924268217]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -12)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D_3" unique_id=1557317899]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_aoslj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D_3" unique_id=411081324]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+material_override = ExtResource("13_rvl8u")
+mesh = SubResource("BoxMesh_7xigm")
+
+[node name="BreakableWall7" parent="." unique_id=594645569 instance=ExtResource("4_b140y")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.8, 0, -12)
+
+[node name="BreakableWall8" parent="." unique_id=1465691582 instance=ExtResource("4_b140y")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -12.8, 0, -12)
+min_strength = 1
+
+[node name="Lever4" parent="." unique_id=2109717589 instance=ExtResource("8_8hp77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5, 0.5, -12)
+
+[node name="DoorHinged" parent="." unique_id=1287523495 node_paths=PackedStringArray("keys") instance=ExtResource("14_q5iec")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.099902, 0, -10)
+keys = [NodePath("../KeyGroup4")]
+rotation_offset = Vector3(0, 90, 0)
+
+[node name="DoorHinged2" parent="." unique_id=2120745543 node_paths=PackedStringArray("keys") instance=ExtResource("14_q5iec")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -5.099902, 0, -14)
+keys = [NodePath("../KeyGroup4")]
+
+[node name="Checkpoint2" parent="." unique_id=1326000841 instance=ExtResource("1_dl72p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Checkpoint3" parent="." unique_id=1771845616 instance=ExtResource("1_dl72p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="DoorSlidingHorizontal" parent="." unique_id=369465403 node_paths=PackedStringArray("keys") instance=ExtResource("15_04ipi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -15)
+keys = [NodePath("../Lever3"), NodePath("../Lever4")]
+
+[node name="DoorSlidingHorizontal2" parent="." unique_id=1997450241 node_paths=PackedStringArray("keys") instance=ExtResource("15_04ipi")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1, 0, -15)
+keys = [NodePath("../Lever3"), NodePath("../Lever4")]

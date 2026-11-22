@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://snmm2p04itmj"]
+
+[ext_resource type="Script" uid="uid://cw0jxomqngybq" path="res://scripts/player/player.gd" id="1_o0pne"]
+[ext_resource type="PackedScene" uid="uid://07467nboty1i" path="res://models/Main_Character_OUT_TO_Godot_master.glb" id="2_o0pne"]
+[ext_resource type="Script" uid="uid://cw0c60b6ky8e6" path="res://scripts/record/recordable.gd" id="3_rcrd"]
+[ext_resource type="Script" uid="uid://dpuasuh1y65r4" path="res://scripts/record/rewind_ability.gd" id="4_rwnd"]
+[ext_resource type="Script" uid="uid://bms1mkty0q0ie" path="res://scripts/player/player_attack.gd" id="6_atk"]
+[ext_resource type="Script" uid="uid://bnaauvo4w6tda" path="res://scripts/player/interact_sensor.gd" id="8_intr"]
+[ext_resource type="Script" uid="uid://dvthb6eb5irus" path="res://scripts/player/player_animator.gd" id="9_anim"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_reach"]
+radius = 0.6
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rjfk2"]
+radius = 0.25
+height = 1.5
+
+[node name="RigidBody3D" type="CharacterBody3D" unique_id=818973133 groups=["actor", "player"]]
+collision_layer = 2
+input_ray_pickable = false
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("1_o0pne")
+acceleration = 20.0
+deceleration = 25.0
+snap_angle = 30.0
+turn_deceleration = 40.0
+air_control = 0.7
+turn_speed = 10.0
+jump_height = 2.25
+jump_time_to_peak = 0.5
+fall_gravity_multiplier = 2.5
+jump_buffer_window = 0.18
+coyote_window = 1.5
+
+[node name="PlayerAnimator" type="Node" parent="." unique_id=1557783150 node_paths=PackedStringArray("animation_player")]
+script = ExtResource("9_anim")
+animation_player = NodePath("../Main_Character_OUT_TO_Godot_master/AnimationPlayer")
+land_animation = &"Anim_SaltoAnticipacion"
+anticipation_time = 0.05
+attack_time = 0.1
+blend_time = 0.15
+
+[node name="Recordable" type="Node" parent="." unique_id=69838288]
+script = ExtResource("3_rcrd")
+record_velocity = true
+
+[node name="RewindAbility" type="Node" parent="." unique_id=2005450003 node_paths=PackedStringArray("recordable")]
+script = ExtResource("4_rwnd")
+recordable = NodePath("../Recordable")
+
+[node name="PlayerAttack" type="Node" parent="." unique_id=1004542324]
+script = ExtResource("6_atk")
+strong_charge_time = 2.0
+auto_aim_angle = 25.0
+auto_aim_distance = 15.0
+
+[node name="InteractSensor" type="Area3D" parent="." unique_id=123904470]
+collision_layer = 0
+collision_mask = 8
+monitoring = false
+monitorable = false
+script = ExtResource("8_intr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractSensor" unique_id=1893631940]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -0.4)
+shape = SubResource("SphereShape3D_reach")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1431665808]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CapsuleShape3D_rjfk2")
+
+[node name="Main_Character_OUT_TO_Godot_master" parent="." unique_id=1790434878 instance=ExtResource("2_o0pne")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)

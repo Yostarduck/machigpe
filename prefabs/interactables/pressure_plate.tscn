@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://drtnuniaf3opm"]
+
+[ext_resource type="Script" uid="uid://1rjtsmfrk84t" path="res://scripts/interactables/pressure_plate.gd" id="1_plate"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_plate"]
+size = Vector3(1, 0.05, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_plate"]
+size = Vector3(0.9, 0.4, 0.9)
+
+[node name="PressurePlate" type="Node3D" unique_id=1322640367]
+script = ExtResource("1_plate")
+color_released = Color(0.9, 0.9, 0.18899998, 1)
+
+[node name="Top" type="MeshInstance3D" parent="." unique_id=390199759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
+mesh = SubResource("BoxMesh_plate")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1476965594]
+collision_layer = 0
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=348943059]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("BoxShape3D_plate")
