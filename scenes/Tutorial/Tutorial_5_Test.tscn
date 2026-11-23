@@ -8,6 +8,7 @@
 [ext_resource type="Material" uid="uid://u2mb8w7vepnr" path="res://models/Objects/mat_tile_2.tres" id="6_vdt2a"]
 [ext_resource type="PackedScene" path="res://prefabs/level/prototype_platform.tscn" id="7_vber1"]
 [ext_resource type="PackedScene" path="res://prefabs/level/prototype_wall.tscn" id="8_1e4ry"]
+[ext_resource type="PackedScene" uid="uid://cfo3x5m1fhyb3" path="res://prefabs/interactables/moving_platform.tscn" id="9_w2w0a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_spm3u"]
 size = Vector3(30, 0.1, 30)
@@ -250,3 +251,7 @@ size = Vector3(4, 0.75, 5)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10, 0, 0)
 extra_height = 0.75
 size = Vector3(2, 3.5, 0.25)
+
+[node name="MovingPlatform" parent="." unique_id=2038628555 instance=ExtResource("9_w2w0a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0.5, 2)
+offset = Vector3(5, 0, 0)
