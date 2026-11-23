@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://cvkcijpgrx0vh" path="res://prefabs/level/checkpoint.tscn" id="1_8wrxn"]
 [ext_resource type="Material" uid="uid://n77rq8aivmw1" path="res://materials/mat_floor.tres" id="2_ck0n5"]
 [ext_resource type="Material" uid="uid://bts5atlqa27aw" path="res://materials/mat_wall.tres" id="3_moyfr"]
+[ext_resource type="Material" uid="uid://bk6nh60c3lcob" path="res://models/Objects/mat_tile_1.tres" id="4_3s063"]
+[ext_resource type="ArrayMesh" uid="uid://bkyl7xy13fsfx" path="res://models/Objects/Tile.obj" id="4_5vt17"]
+[ext_resource type="Material" uid="uid://u2mb8w7vepnr" path="res://models/Objects/mat_tile_2.tres" id="6_vdt2a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_spm3u"]
 size = Vector3(30, 0.1, 30)
@@ -141,3 +144,78 @@ shape = SubResource("BoxShape3D_xkif7")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wall5" unique_id=1911083337]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("BoxMesh_ugup4")
+
+[node name="Tile" type="MeshInstance3D" parent="." unique_id=2069248755]
+transform = Transform3D(0.5, 0, 0, 0, 0.6, 0, 0, 0, 0.5, -0.8184023, 4.7683716e-07, 8.5506115)
+material_override = ExtResource("4_3s063")
+mesh = ExtResource("4_5vt17")
+
+[node name="Tile5" type="MeshInstance3D" parent="." unique_id=1012564128]
+transform = Transform3D(0.5, 0, 0, 0, 0.6, 0, 0, 0, 0.5, 0.5670788, 4.7683716e-07, 3.2949257)
+material_override = ExtResource("4_3s063")
+mesh = ExtResource("4_5vt17")
+
+[node name="Tile8" type="MeshInstance3D" parent="." unique_id=1710602536]
+transform = Transform3D(0.5585871, 0, 0, 0, 0.6, 0, 0, 0, 0.57206804, 4.943209, 4.7683716e-07, 2.618926)
+material_override = ExtResource("4_3s063")
+mesh = ExtResource("4_5vt17")
+
+[node name="Tile3" type="MeshInstance3D" parent="." unique_id=2056766394]
+transform = Transform3D(0.31993657, 0, 0, 0, 0.6, 0, 0, 0, 0.36124322, 0.41136587, 4.7683716e-07, 6.8119764)
+material_override = ExtResource("4_3s063")
+mesh = ExtResource("4_5vt17")
+
+[node name="Tile10" type="MeshInstance3D" parent="." unique_id=266033093]
+transform = Transform3D(0.31993657, 0, 0, 0, 0.6, 0, 0, 0, 0.36124322, 6.979871, 4.7683716e-07, 1.7896132)
+material_override = ExtResource("4_3s063")
+mesh = ExtResource("4_5vt17")
+
+[node name="Tile14" type="MeshInstance3D" parent="." unique_id=1813276184]
+transform = Transform3D(0.31993657, 0, 0, 0, 0.6, 0, 0, 0, 0.36124322, 6.9771037, 4.7683716e-07, -1.3066821)
+material_override = ExtResource("4_3s063")
+mesh = ExtResource("4_5vt17")
+
+[node name="Tile2" type="MeshInstance3D" parent="." unique_id=372031765]
+transform = Transform3D(0.5, 0, 0, 0, 0.6, 0, 0, 0, 0.5, -0.62730014, 4.7683716e-07, 6.0179305)
+material_override = ExtResource("6_vdt2a")
+mesh = ExtResource("4_5vt17")
+
+[node name="Tile15" type="MeshInstance3D" parent="." unique_id=1871673430]
+transform = Transform3D(0.5, 0, 0, 0, 0.6, 0, 0, 0, 0.5, 7.5115957, -4.7683716e-07, -2.5305362)
+material_override = ExtResource("6_vdt2a")
+mesh = ExtResource("4_5vt17")
+
+[node name="Tile9" type="MeshInstance3D" parent="." unique_id=2145307518]
+transform = Transform3D(0.5675478, 0, 0, 0, 0.6, 0, 0, 0, 0.59304655, 6.8885884, 4.7683716e-07, 3.332982)
+material_override = ExtResource("6_vdt2a")
+mesh = ExtResource("4_5vt17")
+
+[node name="Tile4" type="MeshInstance3D" parent="." unique_id=1302169444]
+transform = Transform3D(0.42137453, 0, 0, 0, 0.6, 0, 0, 0, 0.43365037, -0.80411214, 4.7683716e-07, 2.9594846)
+material_override = ExtResource("6_vdt2a")
+mesh = ExtResource("4_5vt17")
+
+[node name="Tile6" type="MeshInstance3D" parent="." unique_id=1373910224]
+transform = Transform3D(0.42137453, 0, 0, 0, 0.6, 0, 0, 0, 0.43365037, 2.256736, 4.7683716e-07, 2.706945)
+material_override = ExtResource("6_vdt2a")
+mesh = ExtResource("4_5vt17")
+
+[node name="Tile7" type="MeshInstance3D" parent="." unique_id=1833181688]
+transform = Transform3D(0.31646976, 0, 0, 0, 0.6, 0, 0, 0, 0.28912088, 3.345133, 4.7683716e-07, 3.3497114)
+material_override = ExtResource("6_vdt2a")
+mesh = ExtResource("4_5vt17")
+
+[node name="Tile11" type="MeshInstance3D" parent="." unique_id=1543057334]
+transform = Transform3D(0.31646976, 0, 0, 0, 0.6, 0, 0, 0, 0.28912088, 7.7852964, 4.7683716e-07, 1.2782316)
+material_override = ExtResource("6_vdt2a")
+mesh = ExtResource("4_5vt17")
+
+[node name="Tile12" type="MeshInstance3D" parent="." unique_id=1157012000]
+transform = Transform3D(0.31646976, 0, 0, 0, 0.6, 0, 0, 0, 0.28912088, 7.55991, 4.7683716e-07, 0.11763573)
+material_override = ExtResource("6_vdt2a")
+mesh = ExtResource("4_5vt17")
+
+[node name="Tile13" type="MeshInstance3D" parent="." unique_id=1608482793]
+transform = Transform3D(0.1829569, 0, 0, 0, 0.6, 0, 0, 0, 0.18903518, 7.19247, 4.7683716e-07, 0.7814355)
+material_override = ExtResource("6_vdt2a")
+mesh = ExtResource("4_5vt17")

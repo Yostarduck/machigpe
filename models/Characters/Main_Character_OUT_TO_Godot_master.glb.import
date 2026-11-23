@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bq34qs1vkuuk3"
-path="res://.godot/imported/Mini_Golem_OUT_To_Godot_master.glb-04d43776f42b7786958fff7be0e55b2e.scn"
+uid="uid://07467nboty1i"
+path="res://.godot/imported/Main_Character_OUT_TO_Godot_master.glb-7ee69895fc47f50eccbbc32a173c6ab0.scn"
 
 [deps]
 
-source_file="res://models/Mini_Golem_OUT_To_Godot_master.glb"
-dest_files=["res://.godot/imported/Mini_Golem_OUT_To_Godot_master.glb-04d43776f42b7786958fff7be0e55b2e.scn"]
+source_file="res://models/Characters/Main_Character_OUT_TO_Godot_master.glb"
+dest_files=["res://.godot/imported/Main_Character_OUT_TO_Godot_master.glb-7ee69895fc47f50eccbbc32a173c6ab0.scn"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bnxsq6ipp0uxn"]
 
 [ext_resource type="Script" uid="uid://ctan23yjbvugc" path="res://scripts/record/phantom.gd" id="1_phtm"]
-[ext_resource type="PackedScene" uid="uid://07467nboty1i" path="res://models/Main_Character_OUT_TO_Godot_master.glb" id="2_model"]
+[ext_resource type="PackedScene" uid="uid://07467nboty1i" path="res://models/Characters/Main_Character_OUT_TO_Godot_master.glb" id="2_model"]
 [ext_resource type="Material" uid="uid://25b5khikmjn6" path="res://materials/mat_phantom.tres" id="3_mat"]
 [ext_resource type="Script" uid="uid://bnaauvo4w6tda" path="res://scripts/player/interact_sensor.gd" id="4_intr"]
 
