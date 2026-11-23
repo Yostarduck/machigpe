@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/level/prototype_platform.gd" id="1_proto"]
+[ext_resource type="Material" path="res://materials/mat_wall.tres" id="2_wall"]
+[ext_resource type="Material" path="res://materials/mat_floor.tres" id="3_floor"]
+
+[node name="PrototypePlatform" type="StaticBody3D"]
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("1_proto")
+size = Vector3(2, 1, 2)
+wall_material = ExtResource("2_wall")
+floor_material = ExtResource("3_floor")

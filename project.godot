@@ -25,6 +25,10 @@ GameState="*res://scripts/core/game_state.gd"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/prototype_platform/plugin.cfg")
+
 [input]
 
 move_left={

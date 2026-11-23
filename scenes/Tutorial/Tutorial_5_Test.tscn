@@ -6,6 +6,8 @@
 [ext_resource type="Material" uid="uid://bk6nh60c3lcob" path="res://models/Objects/mat_tile_1.tres" id="4_3s063"]
 [ext_resource type="ArrayMesh" uid="uid://bkyl7xy13fsfx" path="res://models/Objects/Tile.obj" id="4_5vt17"]
 [ext_resource type="Material" uid="uid://u2mb8w7vepnr" path="res://models/Objects/mat_tile_2.tres" id="6_vdt2a"]
+[ext_resource type="PackedScene" path="res://prefabs/level/prototype_platform.tscn" id="7_vber1"]
+[ext_resource type="PackedScene" path="res://prefabs/level/prototype_wall.tscn" id="8_1e4ry"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_spm3u"]
 size = Vector3(30, 0.1, 30)
@@ -219,3 +221,32 @@ mesh = ExtResource("4_5vt17")
 transform = Transform3D(0.1829569, 0, 0, 0, 0.6, 0, 0, 0, 0.18903518, 7.19247, 4.7683716e-07, 0.7814355)
 material_override = ExtResource("6_vdt2a")
 mesh = ExtResource("4_5vt17")
+
+[node name="PrototypePlatform" parent="." unique_id=1501558847 instance=ExtResource("7_vber1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -3.5)
+size = Vector3(9, 2.5, 5.75)
+
+[node name="PrototypePlatform2" parent="." unique_id=918785416 instance=ExtResource("7_vber1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -2.5)
+size = Vector3(9, 1.5, 5.75)
+
+[node name="PrototypePlatform3" parent="." unique_id=1213209103 instance=ExtResource("7_vber1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0, -2.5)
+size = Vector3(3, 1.5, 5)
+
+[node name="PrototypePlatform4" parent="." unique_id=815178825 instance=ExtResource("7_vber1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -2.5)
+size = Vector3(3, 2, 5)
+
+[node name="PrototypePlatform5" parent="." unique_id=317572098 instance=ExtResource("7_vber1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, -6.5)
+size = Vector3(13, 3, 5)
+
+[node name="PrototypePlatform6" parent="." unique_id=532211140 instance=ExtResource("7_vber1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2.5)
+size = Vector3(4, 0.75, 5)
+
+[node name="PrototypeWall" parent="." unique_id=1765840448 instance=ExtResource("8_1e4ry")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10, 0, 0)
+extra_height = 0.75
+size = Vector3(2, 3.5, 0.25)
