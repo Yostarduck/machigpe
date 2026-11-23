@@ -17,15 +17,17 @@ extends Node3D
 ## more of the level is visible in front of the player than behind. The wall still uses
 ## the real feet.
 ##
-## The screen position alone sets the image (orthographic camera), so the camera is
-## placed on its view ray at the height reference_height + offset.y. Walking on flat
-## ground only moves it on X and Z; it moves on Y only when the framed height changes
-## (landing higher or lower, falling). Its distance to the player along the view axis
-## stays constant, so the scene never drifts towards the near or far clip planes.
+## The camera is placed on its view ray at the height reference_height + offset.y.
+## Walking on flat ground only moves it on X and Z; it moves on Y only when the framed
+## height changes (landing higher or lower, falling). Its distance to the framed height
+## along the view axis stays constant: with a perspective camera the player keeps the
+## same size on screen, and the scene never drifts towards the near or far clip planes.
+## The reference height eases towards its target (critically damped, no overshoot), so
+## these vertical moves start and stop smoothly.
 
 ## Node followed. Its origin is the feet. Defaults to the first node in the "player" group.
 @export var target : Node3D
-## The orthographic camera; its size gives the visible area.
+## The camera (perspective or orthographic); it gives the visible area.
 @export var camera : Camera3D
 ## Camera position relative to the focus point.
 @export var offset : Vector3 = Vector3(10, 10, 10)
@@ -53,8 +55,11 @@ extends Node3D
 @export var lead_min_speed : float = 0.5
 
 @export_group("Vertical framing")
-## How fast (m/s) the framed height reaches the floor height after landing somewhere new.
-@export var height_follow_speed : float = 6.0
+## Roughly the time (s) the framed height takes to reach the floor height after landing
+## somewhere new. Higher = smoother and slower.
+@export var height_smooth_time : float = 0.35
+## The same while following a fall (lower, so the camera keeps up with the drop).
+@export var fall_smooth_time : float = 0.15
 ## How far (m) the feet can fall below the framed height before the camera follows them down.
 @export var fall_threshold : float = 2.0
 
@@ -64,6 +69,9 @@ var focus : Vector2
 var reference_height : float
 ## Fell more than fall_threshold: the reference height follows the feet until landing.
 var _falling : bool = false
+## Height the reference height eases towards, and its current speed (m/s).
+var _height_target : float
+var _height_velocity : float = 0.0
 ## Offset (world X/Z) of the framed point from the feet: the look-ahead.
 var lead : Vector3 = Vector3.ZERO
 var _last_feet : Vector3
@@ -111,18 +119,32 @@ func _physics_process(delta: float) -> void:
 func snap() -> void:
 	focus = _to_plane(target.global_position)
 	reference_height = target.global_position.y
+	_height_target = reference_height
+	_height_velocity = 0.0
 	_falling = false
 	lead = Vector3.ZERO
 	_last_feet = target.global_position
 	_apply()
 
-## Visible area of the camera in metres (width, height).
+## Visible area of the camera in metres (width, height). Perspective: measured at the
+## framed height, on the screen centre.
 func view_size() -> Vector2:
 	var viewport := get_viewport().get_visible_rect().size
 	var aspect := viewport.x / viewport.y if viewport.y > 0.0 else 1.0
+	var size := camera.size
+	if camera.projection == Camera3D.PROJECTION_PERSPECTIVE:
+		size = 2.0 * _framed_distance() * tan(deg_to_rad(camera.fov) * 0.5)
 	if camera.keep_aspect == Camera3D.KEEP_WIDTH:
-		return Vector2(camera.size, camera.size / aspect)
-	return Vector2(camera.size * aspect, camera.size)
+		return Vector2(size, size / aspect)
+	return Vector2(size * aspect, size)
+
+# Distance from the camera, along its view axis, to the framed height on the screen centre
+func _framed_distance() -> float:
+	var forward := -camera.global_basis.z
+	var to_rig := (global_position - camera.global_position).dot(forward)
+	# The rig is offset.y above the framed height, on the view axis
+	var rig_to_framed := offset.y / absf(_back.y) if absf(_back.y) > 0.001 else 0.0
+	return maxf(to_rig + rig_to_framed, 0.01)
 
 ## Where the feet are relative to the screen centre, in metres on the camera plane.
 func screen_offset(world_point: Vector3) -> Vector2:
@@ -146,15 +168,36 @@ func _update_lead(feet: Vector3, delta: float) -> void:
 ## On the floor it moves to the feet height; in the air it stays (jumps), unless the
 ## feet fall more than fall_threshold below it.
 func _update_reference_height(feet_height: float, delta: float) -> void:
-	if _is_grounded():
-		reference_height = move_toward(reference_height, feet_height, height_follow_speed * delta)
-	elif feet_height < reference_height - fall_threshold or _falling:
-		# A real fall: frame the feet themselves until landing. The camera speed is
-		# limited, so this catches up smoothly instead of jumping.
+	var grounded := _is_grounded()
+	if grounded:
+		_height_target = feet_height
+	elif feet_height < _height_target - fall_threshold or _falling:
+		# A real fall: frame the feet themselves until landing
 		_falling = true
-		reference_height = feet_height
-	if _is_grounded():
+		_height_target = feet_height
+	var smooth_time := fall_smooth_time if _falling else height_smooth_time
+	if grounded:
 		_falling = false
+	reference_height = _smooth_damp(reference_height, _height_target, smooth_time, delta)
+
+# Critically damped ease towards `to`: starts and stops smoothly, never overshoots.
+# Keeps its speed in _height_velocity.
+func _smooth_damp(from: float, to: float, smooth_time: float, delta: float) -> float:
+	if smooth_time <= 0.0:
+		_height_velocity = 0.0
+		return to
+	var omega := 2.0 / smooth_time
+	var x := omega * delta
+	var decay := 1.0 / (1.0 + x + 0.48 * x * x + 0.235 * x * x * x)
+	var change := from - to
+	var temp := (_height_velocity + omega * change) * delta
+	_height_velocity = (_height_velocity - omega * temp) * decay
+	var result := to + (change + temp) * decay
+	# No overshoot
+	if (to - from > 0.0) == (result > to):
+		result = to
+		_height_velocity = 0.0
+	return result
 
 func _is_grounded() -> bool:
 	if target.has_method(&"is_grounded"):

@@ -13,27 +13,26 @@
 [node name="root" type="Node3D" unique_id=986410265]
 
 [node name="CameraRig" type="Node3D" parent="." unique_id=1942554622 node_paths=PackedStringArray("target", "camera")]
-transform = Transform3D(0.7071067, -0.4545194, 0.54167515, 0, 0.7660443, 0.6427875, -0.7071067, -0.4545194, 0.54167515, 15, 15, 15)
+transform = Transform3D(0.7071067, -0.45451936, 0.54167515, 0, 0.7660443, 0.6427875, -0.7071067, -0.45451936, 0.54167515, 21.667, 25.712, 21.667)
 script = ExtResource("13_crig")
 target = NodePath("../PlayerHandler")
 camera = NodePath("Camera3D")
-offset = Vector3(14, 15, 15)
-inner_rect = Vector2(0.2, 0.2)
-outer_rect = Vector2(0.4, 0.5)
-max_lead = 7.0
+offset = Vector3(21.667, 25.712, 21.667)
+inner_rect = Vector2(0.1, 0.2)
+outer_rect = Vector2(0.5, 0.4)
+max_lead = 10.0
 lead_speed = 2.0
-lead_return_speed = 8.0
+lead_return_speed = 4.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=1575767219]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, -2.9802322e-08, 0, 0, 1, 0, 0, 30)
+transform = Transform3D(1, 0, 0, 0, 1.0000001, -2.9802322e-08, 0, 0, 1, 0, 0, 0)
 current = true
-fov = 15.0
+fov = 20.0
 size = 12.5
 near = 5.0
 far = 100.0
 
 [node name="PlayerHandler" parent="." unique_id=818973133 instance=ExtResource("2_sugp2")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, -196.56091)
 
 [node name="Label3D" type="Label3D" parent="PlayerHandler" unique_id=576816035]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -48,7 +47,6 @@ light_energy = 0.5
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
-directional_shadow_mode = 1
 directional_shadow_split_1 = 0.2
 directional_shadow_blend_splits = true
 directional_shadow_pancake_size = 1.0
